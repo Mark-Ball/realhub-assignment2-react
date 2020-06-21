@@ -30,8 +30,8 @@ const Orders = () => {
     
     useEffect(() => {
         const getOrders = async () => {
-            const result = await axios.get('http://localhost:3000/orders');
-            setData(result.data);
+            const response = await axios.get(process.env.REACT_APP_API + '/orders');
+            setData(response.data);
         }
         getOrders();
     }, []);
