@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import Order from '../Order/Order';
 
 // mocked object from rails app
@@ -25,6 +26,12 @@ const response = [
     }
 ]
 const Orders = () => {
+    // useEffect(async () => {
+    //     const r = await axios.get('http://localhost:3000/orders');
+    //     console.log(r);
+    //     // also need to fix CORS in rails app
+    // })
+
     return (
         <>
             <h1>Orders</h1>
