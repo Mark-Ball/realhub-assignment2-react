@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { TopContainer, BottomContainer } from './styles';
 
 const Order = props => {
-    const { id, agency, status, campaign, product, quantity } = props;
+    const [status, setStatus] = useState(props.status);
+    const { id, agency, campaign, product, quantity } = props;
     const { unit_number, street_number, street_name, suburb_name } = campaign;
 
     const handleDownload = () => {
         console.log(`download artwork for ${id}`)
     }
 
-    const changeStatus = () => {
-        console.log(`change status for ${id}`)
+    const changeStatus = async () => {
+        const response = await axios.get(process.env.REACT_APP_API + `/order/${id}/status`);
+        setStatus(response.data)
     }
 
     return (
