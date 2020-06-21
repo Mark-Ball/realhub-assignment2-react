@@ -1,10 +1,9 @@
 import React from 'react';
+import Orders from '../Orders/Orders';
 // import './App.css';
 
-const App = () => {
-  return (
-    <h1>App</h1>
-  );
-}
+const App = () => (
+  <Orders />
+)
 
 export default App;
