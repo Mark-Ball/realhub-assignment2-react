@@ -1,13 +1,10 @@
 import React from 'react';
 import OrderItem from './OrderItem';
-import { OrderContainer, TopContainer, BottomContainer } from './styles';
+import { OrderContainer, TopContainer } from './styles';
 
 const Order = props => {
-
     const { agency, campaign, items } = props;
     const { unit_number, street_number, street_name, suburb_name } = campaign;
-
-    console.log(items);
 
     return (
         <OrderContainer>

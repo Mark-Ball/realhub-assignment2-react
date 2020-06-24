@@ -7,8 +7,9 @@ const OrderItem = props => {
     const { item } = props;
     const { id, title, quantity, artwork_id, status_id } = item;
 
-    const handleDownload = () => {
-        console.log(`download artwork for ${id}`)
+    const handleDownload = async () => {
+        const response = await axios.get(process.env.REACT_APP_API + `/artwork/url/${artwork_id}`);
+        window.location = response.data;
     }
 
     const changeStatus = async () => {
@@ -19,7 +20,9 @@ const OrderItem = props => {
     return (
         <BottomContainer>
             <p>{quantity} x {title}</p>
-            <p><span onClick={handleDownload}>Download Artwork</span> | <span onClick={changeStatus}>Change status</span> | <span>{status}</span></p> 
+            <p>{artwork_id && <span onClick={handleDownload}>Download Artwork</span>}
+                {artwork_id && ' | '}
+                <span onClick={changeStatus}>Change status</span> | <span>{status}</span></p> 
         </BottomContainer>
     )
 }
