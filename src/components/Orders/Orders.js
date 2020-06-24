@@ -42,12 +42,9 @@ const Orders = () => {
             {data.map(order => (
                 <Order
                     key={order.id}
-                    id={order.id}
                     agency={order.agency.title}
-                    status={order.status.title}
                     campaign={order.campaign}
-                    product={order.title}
-                    quantity={order.quantity}
+                    items={order.items}
                 />
             ))}
         </>

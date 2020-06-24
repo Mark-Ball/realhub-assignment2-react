@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-export const TopContainer = styled.div`
+export const OrderContainer = styled.div`
+    margin: 20px;
     width: 600px;
+    border: 1px solid grey;
+`;
+
+export const TopContainer = styled.div`
+    width: 100%;
     border: 1px solid grey;
 
     p {
@@ -12,7 +18,7 @@ export const TopContainer = styled.div`
 export const BottomContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 600px;
+    width: 100%;
     border-left: 1px solid grey;
     border-right: 1px solid grey;
     border-bottom: 1px solid grey;
