@@ -25,17 +25,19 @@ const OrderItem = props => {
     return (
         <BottomContainer>
             <p>{quantity} x {title}</p>
-            <p>{artwork_id && <span onClick={handleDownload}>Download Artwork</span>}</p>
-            <select value={status.id} onChange={handleSelect}>
-                {statuses.map((s, index) => (
-                    <option 
-                        key={index}
-                        value={index + 1}
-                    >
-                        {s.title}
-                    </option>
-                ))}
-            </select>
+            <div>
+                {artwork_id && <span onClick={handleDownload}>Download Artwork</span>}
+                <select value={status.id} onChange={handleSelect}>
+                    {statuses.map((s, index) => (
+                        <option 
+                            key={index}
+                            value={index + 1}
+                        >
+                            {s.title}
+                        </option>
+                    ))}
+                </select>
+            </div>
         </BottomContainer>
     )
 }

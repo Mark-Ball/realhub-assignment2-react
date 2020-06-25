@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const OrderContainer = styled.div`
-    margin: 20px;
-    width: 600px;
+    margin: 40px auto;
+    width: 800px;
     border: 1px solid grey;
 `;
 
@@ -25,22 +25,18 @@ export const BottomContainer = styled.div`
 
     p {
         margin: 10px;
+    }
 
-        span:nth-child(1), span:nth-child(2) {
+    div {
+        display: flex;
+
+        span {
             cursor: pointer;
+            margin: 10px;
 
             :hover {
                 text-decoration: underline;
             }
         }
-
-        span:nth-child(3) {
-            color: ${props => props.status === 'Approved' ? 'green' : 'grey'};
-            font-weight: bold;
-        }
-    }
-
-    div {
-        display: flex;
     }
 `;
