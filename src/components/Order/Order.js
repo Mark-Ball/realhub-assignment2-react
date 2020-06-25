@@ -3,7 +3,7 @@ import OrderItem from './OrderItem';
 import { OrderContainer, TopContainer } from './styles';
 
 const Order = props => {
-    const { agency, campaign, items } = props;
+    const { agency, campaign, items, statuses } = props;
     const { unit_number, street_number, street_name, suburb_name } = campaign;
 
     return (
@@ -15,6 +15,7 @@ const Order = props => {
                 <OrderItem
                     key={item.id}
                     item={item}
+                    statuses={statuses}
                 />
             ))}
         </OrderContainer>
