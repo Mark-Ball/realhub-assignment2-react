@@ -3,9 +3,9 @@ import { BottomContainer } from './styles';
 import axios from 'axios';
 
 const OrderItem = props => {
-    const [status, setStatus] = useState(props.status);
     const { item, statuses } = props;
     const { id, title, quantity, artwork_id, status_id } = item;
+    const [status, setStatus] = useState(statuses[status_id - 1]);
 
     const handleDownload = async () => {
         const response = await axios.get(process.env.REACT_APP_API + `/artwork/url/${artwork_id}`);
@@ -13,21 +13,27 @@ const OrderItem = props => {
     }
 
     const handleSelect = async event => {
+        const statusId = event.target.value;
         const response = await axios.post(process.env.REACT_APP_API + `/order_items/${id}/change_status`,
-            { status: event.target.value }
+            { status: statusId }
         );
-        console.log(response);
+        if (response.data) {
+            setStatus(statuses[statusId - 1]);
+        }
     }
 
     return (
         <BottomContainer>
             <p>{quantity} x {title}</p>
-            <p>{artwork_id && <span onClick={handleDownload}>Download Artwork</span>}
-                {artwork_id && ' | '}
-            </p>
-            <select onChange={handleSelect}>
+            <p>{artwork_id && <span onClick={handleDownload}>Download Artwork</span>}</p>
+            <select value={status.id} onChange={handleSelect}>
                 {statuses.map((s, index) => (
-                    <option key={index} value={index}>{s.title}</option>
+                    <option 
+                        key={index}
+                        value={index + 1}
+                    >
+                        {s.title}
+                    </option>
                 ))}
             </select>
         </BottomContainer>
