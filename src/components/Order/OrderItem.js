@@ -27,7 +27,7 @@ const OrderItem = props => {
             <p>{quantity} x {title}</p>
             <div>
                 {artwork_id && <span onClick={handleDownload}>Download Artwork</span>}
-                <select value={status.id} onChange={handleSelect}>
+                {status && <select value={status.id} onChange={handleSelect}>
                     {statuses.map((s, index) => (
                         <option 
                             key={index}
@@ -36,7 +36,8 @@ const OrderItem = props => {
                             {s.title}
                         </option>
                     ))}
-                </select>
+                
+                </select>}
             </div>
         </BottomContainer>
     )

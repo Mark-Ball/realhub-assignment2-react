@@ -11,3 +11,8 @@ h1, h2 {
 label, li, p, a, th, td, input, textarea, span, select {
     font-family: Rubik, sans-serif;
 }
+
+select {
+  border: none;
+  font-size: .75em;
+}
