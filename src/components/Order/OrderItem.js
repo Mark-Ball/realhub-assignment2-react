@@ -17,9 +17,11 @@ const OrderItem = props => {
         const response = await axios.post(process.env.REACT_APP_API + `/order_items/${id}/change_status`,
             { status: statusId }
         );
-        if (response.data) {
-            setStatus(statuses[statusId - 1]);
-        }
+        setStatus(() => {
+            if (response.data) {
+                return statuses[statusId - 1];
+            }
+        });
     }
 
     return (
