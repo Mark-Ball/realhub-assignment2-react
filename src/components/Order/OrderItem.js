@@ -29,7 +29,7 @@ const OrderItem = props => {
             <p>{quantity} x {title}</p>
             <div>
                 {artwork_id && <span onClick={handleDownload}>Download Artwork</span>}
-                {status && <select value={status.id} onChange={handleSelect}>
+                {<select value={status.id} onChange={handleSelect}>
                     {statuses.map((s, index) => (
                         <option 
                             key={index}

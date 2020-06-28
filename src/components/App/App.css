@@ -2,10 +2,7 @@
 
 h1, h2 {
   text-align: center;
-}
-
-h1, h2 {
-    font-family: Poppins, sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 label, li, p, a, th, td, input, textarea, span, select {

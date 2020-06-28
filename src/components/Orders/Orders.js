@@ -23,16 +23,19 @@ const Orders = () => {
     return (
         <>
             <h1>Orders</h1>
-            {!!(statuses.length && data.length) || <h2>Loading...</h2>}
-            {!!(statuses.length && data.length) && data.map(order => (
-                <Order
-                    key={order.id}
-                    agency={order.agency.title}
-                    campaign={order.campaign}
-                    items={order.items}
-                    statuses={statuses}
-                />
-            ))}
+            {!(statuses.length && data.length) ? 
+                <h2>Loading...</h2>
+            :
+                data.map(order => (
+                    <Order
+                        key={order.id}
+                        agency={order.agency.title}
+                        campaign={order.campaign}
+                        items={order.items}
+                        statuses={statuses}
+                    />
+                ))
+            }
         </>
     )
 }
