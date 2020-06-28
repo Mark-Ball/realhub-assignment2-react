@@ -4,7 +4,7 @@ import Order from '../Order/Order';
 
 const Orders = () => {
     const [data, setData] = useState([]);
-    const [statuses, setStatuses] = useState([])
+    const [statuses, setStatuses] = useState([]);
     
     useEffect(() => {
         const getOrders = async () => {
@@ -23,7 +23,8 @@ const Orders = () => {
     return (
         <>
             <h1>Orders</h1>
-            {data.map(order => (
+            {!!(statuses.length && data.length) || <h2>Loading...</h2>}
+            {!!(statuses.length && data.length) && data.map(order => (
                 <Order
                     key={order.id}
                     agency={order.agency.title}
