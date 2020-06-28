@@ -1,9 +1,13 @@
 # Realhub Assignment 2
 
 Deployed frontend: http://realhub-react-assignment2.s3-website-ap-southeast-2.amazonaws.com
+
 Frontend repo: https://github.com/Mark-Ball/realhub-assignment2-react
+
 Deployed backend: https://realhub-backend.herokuapp.com/
+
 Backend repo: https://github.com/Mark-Ball/realhub-assignment2-rails
+
 
 # Architecture
 
